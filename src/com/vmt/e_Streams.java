@@ -2,6 +2,7 @@ package com.vmt;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.junit.Test;
@@ -73,5 +74,16 @@ public class e_Streams {
             .count();
 
         System.out.println(startsWithB);    // 3
+    }
+
+    @Test
+    public void testCollect() {
+        strings = strings
+            .stream()
+            .filter(s -> s.startsWith("b"))
+            .sorted()
+            .collect(Collectors.toList()); // Collect is also a terminal operation
+
+        System.out.println(strings);
     }
 }
