@@ -1,0 +1,14 @@
+Examples for a talk based on the tutorial here: https://github.com/winterbe/java8-tutorial#default-methods-for-interfaces
+Some examples are verbatim copypasta, some have been adapted.
+
+Java 9 roadmap
+2016-01 — JSR 376: Early Draft Review
+2016-05 — JDK 9: Feature Complete
+2016-06 — JSR 376: Public Review
+2016-08 — JDK 9: Rampdown Start
+2016-10 — JDK 9: Zero Bug Bounce
+2016-12 — JSR 376: Proposed Final Draft
+2016-12 — JDK 9: Rampdown Phase 2
+2017-01 — JDK 9: Final Release Candidate
+2017-03 — JSR 376: Final Release
+2017-03 — JDK 9: General Availability

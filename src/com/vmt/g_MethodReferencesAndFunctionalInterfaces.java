@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class MethodReferences {
+public class g_MethodReferencesAndFunctionalInterfaces {
     public static class Person {
         String firstName;
         String lastName;
@@ -30,9 +30,9 @@ public class MethodReferences {
 
     /**
      * Java 8 enables you to pass references of methods or constructors via the :: keyword.
-     * This example shows how to reference a static method. But we can also reference object methods:
+     * This example shows how to reference a static method.
      */
-    @FunctionalInterface
+    @FunctionalInterface // A so called functional interface must contain exactly one abstract method declaration.
     public interface PersonFactory<P extends Person> {
         P create(String firstName, String lastName);
     }
@@ -49,4 +49,7 @@ public class MethodReferences {
         assertEquals("Peter", person.getFirstName());
         assertEquals("Parker", person.getLastName());
     }
+
+    // We can also reference object methods.
+
 }
