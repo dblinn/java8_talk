@@ -22,6 +22,9 @@ public class i_DefaultInterfaceMethods {
             }
         };
 
+        // But default methods are not accessible from within the lambda
+        // Formula f1 = (a) -> sqrt(a * 100); // Does not compile!
+
         System.out.println(formula.calculate(100));     // 100.0
         System.out.println(formula.sqrt(16));           // 4.0
     }

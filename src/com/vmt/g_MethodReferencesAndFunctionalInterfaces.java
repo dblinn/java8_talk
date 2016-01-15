@@ -2,6 +2,10 @@ package com.vmt;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 import org.junit.Test;
 
 public class g_MethodReferencesAndFunctionalInterfaces {
@@ -32,7 +36,8 @@ public class g_MethodReferencesAndFunctionalInterfaces {
      * Java 8 enables you to pass references of methods or constructors via the :: keyword.
      * This example shows how to reference a static method.
      */
-    @FunctionalInterface // A so called functional interface must contain exactly one abstract method declaration.
+    @FunctionalInterface // A so called functional interface must contain
+                         // exactly one abstract method declaration.
     public interface PersonFactory<P extends Person> {
         P create(String firstName, String lastName);
     }
@@ -50,6 +55,34 @@ public class g_MethodReferencesAndFunctionalInterfaces {
         assertEquals("Parker", person.getLastName());
     }
 
-    // We can also reference object methods.
+    // There are built in functional interfaces similar to what was
+    // available in Google's Guava library
+    // Here are examples of predicates and functions
 
+    @Test
+    // Predicates return a boolean
+    public void testPredicateMethods() {
+        Predicate<String> predicate = (s) -> s.length() > 0;
+
+        System.out.println(predicate.test("foo"));              // true
+        System.out.println(predicate.negate().test("foo"));     // false
+    }
+
+    @Test
+    // Functions take a single argument and return a value
+    // They can be chained using syntax like "andThen"
+    public void testFunctions() {
+        Function<String, Integer> toInteger = Integer::valueOf;
+        Function<String, String> backToString = toInteger.andThen(String::valueOf);
+
+        assertEquals("123", backToString.apply("123"));
+    }
+
+    @Test
+    // Bifunctions take two arguments and return a value
+    public void testBiFunctions() {
+        BiFunction<String, Integer, Integer> adder = (a, b) -> Integer.parseInt(a) + b;
+
+        assertEquals(new Integer(3), adder.apply("2", 1));
+    }
 }
